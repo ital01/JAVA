@@ -15,6 +15,7 @@ public class ListaPessoas
     {
         if(count>=Lista.length)
         {
+            System.out.println("Erro ao adicionar " + p.getNome() + ", limite de pessoas atingido \n");
             return false;
         }
         

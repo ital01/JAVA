@@ -6,6 +6,7 @@ public class Faculdade
     public static void main(String[] args) 
     {
         Professor prof1 = new Professor("Joao", "1212121-99", 3, "ADS", 50);
+        Professor prof2 = new Professor("Cleber", "324234323-asd", 6, "SI", 90);
         
         Funcionario func1 = new Funcionario("Maria", "34343434-56", 5, "RH", 4565.87);
         
@@ -28,6 +29,7 @@ public class Faculdade
             
             lista1.add(prof1);
             lista1.add(func1);
+            lista1.add(prof2);
             
             lista1.Listagem();
     }
