@@ -1,11 +1,11 @@
 package faculdade;
 
-public abstract class Trabalhador {
+public abstract class Pessoa {
     protected String Nome, RG;
     protected int qtdFilhos;
     protected final double auxilioProcriacao = 100.00;
 
-    public Trabalhador(String Nome, String RG, int qtdFilhos) 
+    public Pessoa(String Nome, String RG, int qtdFilhos) 
     {
         this.Nome = Nome;
         this.RG = RG;

@@ -1,6 +1,6 @@
 package faculdade;
 
-public class Funcionario extends Trabalhador
+public class Funcionario extends Pessoa
 {
     private String Departamento;
     private double Salario;

@@ -1,6 +1,6 @@
 package faculdade;
 
-public class Professor extends Trabalhador
+public class Professor extends Pessoa
 { 
     private String Curso;
     private int qtdAula = 0;
