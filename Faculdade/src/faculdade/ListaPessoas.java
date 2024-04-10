@@ -10,4 +10,27 @@ public class ListaPessoas
         Lista = new Pessoa[capMax];
         count = 0;
     }
+    
+    public boolean add(Pessoa p)
+    {
+        if(count>=Lista.length)
+        {
+            return false;
+        }
+        
+        Lista[count] = p;
+        count++;
+        
+        return true;
+    }
+    
+    public void Listagem()
+    {
+        for(int i=0; i<count; i++)
+        {
+            Lista[i].hollerith();
+            System.out.println("");
+        }
+    }
+    
 }
