@@ -18,18 +18,19 @@ public class Faculdade
 //
 //        
 //        
-//        for(int i = 0; i<26; i++)
+//        for(int i = 0; i<15; i++)
 //        func1.registraFalta();
 //        //func1.hollerith();
 //        
 //        func1.zerarMes();
 //        func1.hollerith();
 
-            ListaPessoas lista1 = new ListaPessoas(2);
+            ListaPessoas lista1 = new ListaPessoas(3);
             
             lista1.add(prof1);
             lista1.add(func1);
             lista1.add(prof2);
+            lista1.add(new Funcionario("Jose", "ad-5236", 7, "GH", 2341.87));
             
             lista1.Listagem();
     }
