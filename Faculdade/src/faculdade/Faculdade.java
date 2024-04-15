@@ -24,6 +24,7 @@ public class Faculdade
 //        
 //        func1.zerarMes();
 //        func1.hollerith();
+//
 
             ListaPessoas lista1 = new ListaPessoas(3);
             
@@ -33,6 +34,27 @@ public class Faculdade
             lista1.add(new Funcionario("Jose", "ad-5236", 7, "GH", 2341.87));
             
             lista1.Listagem();
+            
+//          Operador instanceof 
+//          Informa se o objeto é ou não intância de uma classe.
+//          (obj instanceof classe), o resultado é booleano.
+            boolean teste = (lista1 instanceof ListaPessoas);
+            System.out.println(teste ? "Sim" : "Nao");
+    
+//          Operador typecast
+//          Exemplo de typecast ja conhecido:
+//          int a = 10, b = 3;
+//          double R = a/b; sem typecast
+//          double R = (double)a/b; com typecast
+//
+//            Pessoa Lista[];
+//            Lista[0].metodo();
+//            if(Lista[0] instanceof Funcionario)
+//            {
+//                Funcionario f = (Funcionario)Lista[0];
+//                f.metodoDaClasseFuncionario();
+//            }
+            
     }
     
 }
