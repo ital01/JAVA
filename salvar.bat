@@ -1,6 +1,9 @@
 @echo off
 set /p commit_msg="Digite a mensagem do commit: "
 
+echo git fetch
+git fetch
+
 echo git add... 
 git add .
 
