@@ -27,9 +27,9 @@ public class Tecelagem
         
         ListaFuncionarios lista1 = new ListaFuncionarios(3);
             
-        lista1.add(adm1);
-        lista1.add(prod1);
-        lista1.add(vend1);
+        lista1.add(adm1);//0
+        lista1.add(prod1);//1 
+        lista1.add(vend1);//2
             
         lista1.registrarFalta(0);
         lista1.registrarHorasDiurnas(1, 4);
