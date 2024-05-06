@@ -1,0 +1,15 @@
+Thread
+
+É uma linha de execução dentro do programa. Dentro de uma thread, os comandos são executados em sequencia, um comando só inicia quando  oanterior for finalizado. O programa pode abrir threads, nesse caso elas serão executadas em paralelo, uma independente das outras. Mas pelo menos uma é obrigatória, que é a thread principal.
+
+----------------------------
+
+Pilha de execução
+
+É a área de memória onde ficam armazenadas as informações das funções que estão em execução. Para cada thread do programa, será criado uma pilha de execução.
+
+----------------------------
+
+Exceção
+
+É gerada quando uma situação inválida impede o processamento normal do programa. A exceção é uma notificação que serve para avisar que ocorreu um erro. A exceção sempre será gerada na função que está no topo da pilha de execução, já que é a única que está realmente executando, todas as outras estão em estado de espera.
