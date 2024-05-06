@@ -32,4 +32,18 @@ catch (exceção) --> Pode ter vários, um para cada exceção que pode ocorrer.
 
 finally --> Sempre vai ser executado ocorrendo ou não uma exceção. Use para finalizar operações que não podem ficar pendentes.
 
+try{
+
+	//codigo
+
+}
+catch(NomeExceção exceção){
+
+	//codigo
+
+}
+finally{
+	//codigo
+}
+
 --------------------------------------------------
