@@ -1,15 +1,35 @@
+--------------------------------------------------
+
 Thread
 
 É uma linha de execução dentro do programa. Dentro de uma thread, os comandos são executados em sequencia, um comando só inicia quando  oanterior for finalizado. O programa pode abrir threads, nesse caso elas serão executadas em paralelo, uma independente das outras. Mas pelo menos uma é obrigatória, que é a thread principal.
 
-----------------------------
+--------------------------------------------------
 
 Pilha de execução
 
 É a área de memória onde ficam armazenadas as informações das funções que estão em execução. Para cada thread do programa, será criado uma pilha de execução.
 
-----------------------------
+--------------------------------------------------
 
 Exceção
 
-É gerada quando uma situação inválida impede o processamento normal do programa. A exceção é uma notificação que serve para avisar que ocorreu um erro. A exceção sempre será gerada na função que está no topo da pilha de execução, já que é a única que está realmente executando, todas as outras estão em estado de espera.
+É gerada quando uma situação inválida impede o processamento normal do programa. A exceção é uma notificação que serve para avisar que ocorreu um erro. A exceção sempre será gerada na função que está no topo da pilha de execução, já que é a única que está realmente executando, todas as outras estão em estado de espera. A exceção pode ser capturada e tratada, nesse caso ela deixa de existir e o programa segue executando normalmente. Mas caso seja ignorada, a função que recebeu a exceção será abortada e a exceção passa para a função que está logo abaixo na pilha de execução. Esse processo continua até que a execeção chegue à função main(). Se a ali também a exceção for ignorada, o programa é abortado e a exceção vai para o sistema operacional que emite uma mensagem de erro.
+
+--------------------------------------------------
+
+Captura de Exceções
+
+Em java, exceções são instâncias de classes que tem como ancetral a classe Exception. Para capturar uma exceção é preciso usar a estrutura try-catch-finally citando a exceção que será capturada ou citando a classe Exception para capturar qual quer exceção que ocorra.
+
+--------------------------------------------------
+
+try - catch - finally
+
+try --> Bloco onde é colocado o código que estará sujeito a exceções. Vai ser executado até o ponto onde a exceção ocorrer (se ocorrer).
+
+catch (exceção) --> Pode ter vários, um para cada exceção que pode ocorrer. Será executado aquele que combinar com a exceção que ocorreu. Se a exceção não combinar com nenhum bloco catch, ela não será capturada.
+
+finally --> Sempre vai ser executado ocorrendo ou não uma exceção. Use para finalizar operações que não podem ficar pendentes.
+
+--------------------------------------------------
