@@ -13,14 +13,31 @@ public class ListaPessoas
     
     public boolean add(Pessoa p)
     {
-        if(count>=Lista.length)
+//        if(count>=Lista.length)
+//        {
+//            System.out.println("-------------------------------------------------------------");
+//            System.out.println("Erro ao adicionar " + p.getNome() + ", limite de pessoas atingido");
+//            System.out.println("-------------------------------------------------------------\n");
+//
+//            return false;
+//        }
+//        
+//        Lista[count] = p;
+//        count++;
+        
+        try
         {
-            System.out.println("Erro ao adicionar " + p.getNome() + ", limite de pessoas atingido \n");
+            Lista[count] = p;
+            count++;
+        }
+        catch(ArrayIndexOutOfBoundsException  exc)
+        {
+            System.out.println("-------------------------------------------------------------");
+            System.out.println("Erro ao adicionar " + p.getNome() + ", limite de pessoas atingido");
+            System.out.println("-------------------------------------------------------------\n");
+            
             return false;
         }
-        
-        Lista[count] = p;
-        count++;
         
         return true;
     }
