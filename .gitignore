@@ -4,5 +4,6 @@
 */dist/
 */build.xml
 */manifest.mf
+*/.vscode/
 README'.md
 salvar.bat
