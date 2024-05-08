@@ -30,12 +30,12 @@ public class ListaPessoas
             Lista[count] = p;
             count++;
         }
-        catch(ArrayIndexOutOfBoundsException  exc)
+        catch(ArrayIndexOutOfBoundsException  e)
         {
-            System.out.println("-------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------");
             System.out.println("Erro ao adicionar " + p.getNome() + ", limite de pessoas atingido");
-            System.out.println("-------------------------------------------------------------\n");
-            
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------\n");
+            e.printStackTrace();
             return false;
         }
         
