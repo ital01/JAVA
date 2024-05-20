@@ -23,8 +23,9 @@ public class Faculdade
 //          Operador instanceof 
 //          Informa se o objeto é ou não intância de uma classe.
 //          (obj instanceof classe), o resultado é booleano.
-        boolean teste = (lista1 instanceof ListaPessoas);
-        System.out.println(teste ? "lista1 é instância de ListaPessoas" : "Não é");
+        boolean condicao = (lista1 instanceof ListaPessoas);
+        String resultado = condicao ? "lista1 é instância de ListaPessoas" : "Não é";
+        System.out.println(resultado);
     
 //          Operador typecast
 //          Exemplo de typecast ja conhecido:
@@ -38,8 +39,7 @@ public class Faculdade
 //            {
 //                Funcionario f = (Funcionario)Lista[0];
 //                f.metodoDaClasseFuncionario();
-//            }
-            
-    }
+//            } 
+    }    
     
 }

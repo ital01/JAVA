@@ -2,55 +2,89 @@ package sistema_pedidos;
 
 public class ListaPedidos 
 {
-    private Pedido Lista[];
+    private Pedido lista[];
     private int count;
     
     public ListaPedidos(int capMax)
     {
-        Lista = new Pedido[capMax];
-        count = 0;
+        lista= new Pedido[capMax];
+        count= 0;
     }
-
-     public Pedido buscarPedido(int numPed)
-     {
-         for(int i = 0; i<=numPed; i++)
-         {
-            if(Lista[i].getNumPedido() == numPed)
-            {
-                return Lista[i];
-            }
-         }
-         return null;
-     }
-     
-     public boolean cadastrarPedido(Pedido p)
-     {
-        if(count>=Lista.length)
-        {
-            System.out.println("Erro ao criar pedido, limite de pedidos atingido");
-            return false;
-        }
-        
-        Lista[count] = p;
-        count++;
-        
-        return true;
-     }
     
-     public void atenderPedido(int numPed)
-     {
-        if(buscarPedido(numPed) != null)
+    // Procura um pedido na lista
+    public Pedido buscarPedido(int numPed)
+    {
+        for(int i=0; i<count; i++)
         {
-            Lista[numPed].realizarAtendimento();
+            if(lista[i].getNumPed()==numPed)
+                return lista[i];
         }
-        else
+        return null;
+    }
+            
+    // adiciona um pedido na lista
+    public void cadastrarPedido(Pedido p)
+    {
+        if(buscarPedido(p.getNumPed()) != null)
         {
-            System.out.println("Pedido não existe");
+            System.out.println("Esse pedido já existe.");
+            return;
         }
-     }
-     
-     public void relatorioCliente(int codCli, boolean todos, boolean atendidos)
-     {
-         
-     }
+        if(count >= lista.length)
+        {
+            System.out.println("Lista lotada.");
+            return;
+        }
+        lista[count]= p;
+        count++;
+    }
+    
+    public void atenderPedido(int numPed)
+    {
+        Pedido p= buscarPedido(numPed);
+        if(p==null)
+        {
+            System.out.println("Pedido não encontrado.");
+            return;
+        }
+        
+        p.atender();
+    }
+    
+    public void relatorioCliente(int codCli, boolean todos, boolean atendidos)
+    {
+        double total= 0;
+        Pedido.printCols();
+        for(int i=0; i<count; i++)
+        {
+            if(lista[i].getCodCli()!=codCli) 
+                continue;
+            if(todos || atendidos==lista[i].isAtendido())
+            {
+                lista[i].printPed();
+                total+= lista[i].getValor();
+            }
+        }
+        System.out.println("Valor total: " + total);
+    }
+    
+    public void pagarVendedor(int codVend, double porcent)
+    {
+        double total= 0;
+        Pedido.printCols();
+        for(int i=0; i<count; i++)
+        {
+            if(lista[i].getCodVend() != codVend)
+                continue;
+            if(!lista[i].isAtendido()) continue;
+            if(lista[i].isPago()) continue;
+            lista[i].pagar();
+            total+= lista[i].getValor();
+            lista[i].printPed();
+        }
+        
+        System.out.println("Valor total: " + total);
+        System.out.println("Comissão a pagar: " + total*porcent/100);
+    }
+    
 }

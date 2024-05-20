@@ -2,33 +2,57 @@ package sistema_pedidos;
 
 public class Pedido 
 {
-    private int numPedido, codCliente, codVendedor;
+    private int numPed, codCli, codVend;
     private double valor;
-    private boolean estadoVenda, estadoAtendimento;
+    private boolean atendido, pago;
+    
+    // Construtor
 
-    public Pedido(int numPedido, int codCliente, int codVendedor, double valor) 
+    public Pedido(int numPed, int codCli, int codVend, double valor) 
     {
-        this.numPedido = numPedido;
-        this.codCliente = codCliente;
-        this.codVendedor = codVendedor;
+        this.numPed = numPed;
+        this.codCli = codCli;
+        this.codVend = codVend;
         this.valor = valor;
-        estadoVenda = false;
-        estadoAtendimento = false;
+        atendido= false;
+        pago= false;
+    }
+    
+    // Setters
+    public void setNumPed(int numPed) 
+    {
+        this.numPed = numPed;
     }
 
-    public int getNumPedido() 
+    public void setCodCli(int codCli) 
     {
-        return numPedido;
+        this.codCli = codCli;
     }
 
-    public int getCodCliente() 
+    public void setCodVend(int codVend) 
     {
-        return codCliente;
+        this.codVend = codVend;
     }
 
-    public int getCodVendedor() 
+    public void setValor(double valor) 
     {
-        return codVendedor;
+        this.valor = valor;
+    }
+
+    // Getters
+    public int getNumPed() 
+    {
+        return numPed;
+    }
+
+    public int getCodCli() 
+    {
+        return codCli;
+    }
+
+    public int getCodVend() 
+    {
+        return codVend;
     }
 
     public double getValor() 
@@ -36,54 +60,58 @@ public class Pedido
         return valor;
     }
 
-    public boolean isEstadoVenda()
+    public boolean isAtendido() 
     {
-        return estadoVenda;
+        return atendido;
     }
 
-    public boolean isEstadoAtendimento()
+    public boolean isPago() 
     {
-        return estadoAtendimento;
-    }
-
-    public void setNumPedido(int numPedido) 
-    {
-        this.numPedido = numPedido;
-    }
-
-    public void setCodCliente(int codCliente)
-    {
-        this.codCliente = codCliente;
-    }
-
-    public void setCodVendedor(int codVendedor)
-    {
-        this.codVendedor = codVendedor;
-    }
-
-    public void setValor(double valor)
-    {
-        this.valor = valor;
+        return pago;
     }
     
-    public void realizarVenda()
+    // Outros
+    public boolean atender()
     {
-        estadoVenda = true;
+        if(atendido) 
+        {
+            System.out.println("Pedido já atendido!!!");
+            return false; 
+        }
+        
+        atendido= true;
+        return true;
     }
     
-    public void realizarAtendimento()
+    public boolean pagar()
     {
-        estadoAtendimento = true;
+        if(!atendido)
+        {
+            System.out.println("Este pedido não foi atendido ainda!!!");
+            return false;
+        }
+        if(pago)
+        {
+            System.out.println("Este pedido já foi pago!!!");
+            return false;
+        }
+        pago= true;
+        return true;
     }
     
-    public void print()
+    
+    // Um método static é um método de classe, não de instancia. Pode ser chamado
+    // diretamente a partir da classe, mas não pode usar atributos e 
+    // métodos de instancia.
+    //
+    public static void printCols()
     {
-        System.out.println("Numero do pedido: " + getNumPedido());
-        System.out.println("Codigo do cliente: " + getCodCliente());
-        System.out.println("Codigo do vendedor: " + getCodVendedor());
-        System.out.println("Valor: " + getValor());
-        System.out.println("Estado da venda" + (isEstadoVenda() ? "Vendido" : "Nao vendido"));
-        System.out.println("Estado do atendimento" + (isEstadoAtendimento() ? "Atendido" : "Nao atendido"));
-        System.out.println("\n");
+        System.out.printf("| %5s | %5s | %5s | %7s |\n", "N.Ped", "C.Cli", "CVend", "Valor");
     }
+    
+    public void printPed()
+    {
+        System.out.printf("| %5d | %5d | %5d | %7.2f |\n", numPed, codCli, codVend, valor);
+    }
+    
 }
