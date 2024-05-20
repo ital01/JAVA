@@ -1,6 +1,6 @@
 package sistema_pedidos;
 
-public class ListaPedidos 
+public class ListaPedidos
 {
     private Pedido lista[];
     private int count;
@@ -23,29 +23,26 @@ public class ListaPedidos
     }
             
     // adiciona um pedido na lista
-    public void cadastrarPedido(Pedido p)
+    public void cadastrarPedido(Pedido p) throws Exception
     {
         if(buscarPedido(p.getNumPed()) != null)
         {
-            System.out.println("Esse pedido já existe.");
-            return;
+            throw new Exception("Esse pedido já existe");
         }
         if(count >= lista.length)
         {
-            System.out.println("Lista lotada.");
-            return;
+            throw new RuntimeException("Lista cheia");
         }
         lista[count]= p;
         count++;
     }
     
-    public void atenderPedido(int numPed)
+    public void atenderPedido(int numPed) throws Exception 
     {
         Pedido p= buscarPedido(numPed);
         if(p==null)
         {
-            System.out.println("Pedido não encontrado.");
-            return;
+            throw new Exception("Pedido não encontrado.");
         }
         
         p.atender();

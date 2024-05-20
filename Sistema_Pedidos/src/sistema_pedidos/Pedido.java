@@ -71,12 +71,11 @@ public class Pedido
     }
     
     // Outros
-    public boolean atender()
+    public boolean atender() throws Exception
     {
         if(atendido) 
         {
-            System.out.println("Pedido já atendido!!!");
-            return false; 
+            throw new Exception("Pedido já atendido!!!");
         }
         
         atendido= true;
