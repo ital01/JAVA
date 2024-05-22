@@ -1,116 +1,87 @@
 package sistema_pedidos;
 
-public class Pedido 
-{
+public class Pedido {
     private int numPed, codCli, codVend;
     private double valor;
     private boolean atendido, pago;
-    
-    // Construtor
 
-    public Pedido(int numPed, int codCli, int codVend, double valor) 
-    {
+    // Construtor
+    public Pedido(int numPed, int codCli, int codVend, double valor) {
         this.numPed = numPed;
         this.codCli = codCli;
         this.codVend = codVend;
         this.valor = valor;
-        atendido= false;
-        pago= false;
+        atendido = false;
+        pago = false;
     }
-    
+
     // Setters
-    public void setNumPed(int numPed) 
-    {
+    public void setNumPed(int numPed) {
         this.numPed = numPed;
     }
 
-    public void setCodCli(int codCli) 
-    {
+    public void setCodCli(int codCli) {
         this.codCli = codCli;
     }
 
-    public void setCodVend(int codVend) 
-    {
+    public void setCodVend(int codVend) {
         this.codVend = codVend;
     }
 
-    public void setValor(double valor) 
-    {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
     // Getters
-    public int getNumPed() 
-    {
+    public int getNumPed() {
         return numPed;
     }
 
-    public int getCodCli() 
-    {
+    public int getCodCli() {
         return codCli;
     }
 
-    public int getCodVend() 
-    {
+    public int getCodVend() {
         return codVend;
     }
 
-    public double getValor() 
-    {
+    public double getValor() {
         return valor;
     }
 
-    public boolean isAtendido() 
-    {
+    public boolean isAtendido() {
         return atendido;
     }
 
-    public boolean isPago() 
-    {
+    public boolean isPago() {
         return pago;
     }
-    
+
     // Outros
-    public boolean atender() throws Exception
-    {
-        if(atendido) 
-        {
-            throw new Exception("Pedido já atendido!!!");
+    public boolean atender() throws pedidoAtendidoException {
+        if (atendido) {
+            throw new pedidoAtendidoException(getNumPed());
         }
-        
-        atendido= true;
+        atendido = true;
         return true;
     }
-    
-    public boolean pagar()
-    {
-        if(!atendido)
-        {
-            System.out.println("Este pedido não foi atendido ainda!!!");
-            return false;
+
+    public boolean pagar() throws pedidoPagoException, pedidoNaoAtendidoException {
+        if (!atendido) {
+            throw new pedidoNaoAtendidoException(getNumPed());
         }
-        if(pago)
-        {
-            System.out.println("Este pedido já foi pago!!!");
-            return false;
+        if (pago) {
+            throw new pedidoPagoException(getNumPed());
         }
-        pago= true;
+        pago = true;
         return true;
     }
-    
-    
-    // Um método static é um método de classe, não de instancia. Pode ser chamado
-    // diretamente a partir da classe, mas não pode usar atributos e 
-    // métodos de instancia.
-    //
-    public static void printCols()
-    {
+
+    public static void printCols() {
         System.out.printf("| %5s | %5s | %5s | %7s |\n", "N.Ped", "C.Cli", "CVend", "Valor");
     }
-    
-    public void printPed()
-    {
+
+    public void printPed() {
         System.out.printf("| %5d | %5d | %5d | %7.2f |\n", numPed, codCli, codVend, valor);
     }
-    
 }

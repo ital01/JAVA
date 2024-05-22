@@ -3,7 +3,7 @@ package sistema_pedidos;
 public class Sistema_Pedidos 
 {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         Pedido p1 = new Pedido(1,1,1,1.11);
         Pedido p2 = new Pedido(2,2,2,2.22); 
@@ -13,24 +13,18 @@ public class Sistema_Pedidos
         
         ListaPedidos L1 = new ListaPedidos(3);
         
-        try 
+        try
         {
-            L1.cadastrarPedido(p1);
-            L1.cadastrarPedido(p2);
-            L1.cadastrarPedido(p3);
-            L1.cadastrarPedido(p4);
-            L1.cadastrarPedido(p5); 
-        } 
-       catch(RuntimeException e)
+        L1.cadastrarPedido(p1);
+        L1.cadastrarPedido(p2);
+        L1.cadastrarPedido(p3);
+        L1.cadastrarPedido(p4);
+        L1.cadastrarPedido(p5); 
+        }
+        catch(listaCheiaException | pedidoExistenteException e)
         {
             System.out.println(e);
         }
-        catch (Exception e) 
-        {
-            System.out.println(e);
-        }
-
-
     }
     
 }
