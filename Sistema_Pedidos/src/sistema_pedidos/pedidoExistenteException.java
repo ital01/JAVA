@@ -1,6 +1,6 @@
 package sistema_pedidos;
 
-public class pedidoExistenteException extends Exception {
+public class pedidoExistenteException extends RuntimeException {
     private String mensagem;
 
     public pedidoExistenteException(int pedido) {

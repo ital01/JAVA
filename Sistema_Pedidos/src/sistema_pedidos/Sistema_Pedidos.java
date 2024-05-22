@@ -21,7 +21,7 @@ public class Sistema_Pedidos
         L1.cadastrarPedido(p4);
         L1.cadastrarPedido(p5); 
         }
-        catch(listaCheiaException | pedidoExistenteException e)
+        catch(Exception e)
         {
             System.out.println(e);
         }

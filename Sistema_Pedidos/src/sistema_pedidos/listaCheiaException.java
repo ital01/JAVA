@@ -1,6 +1,6 @@
 package sistema_pedidos;
 
-public class listaCheiaException extends Exception {
+public class listaCheiaException extends RuntimeException {
     private String mensagem;
 
     public listaCheiaException(int pedido) {
