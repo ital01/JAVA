@@ -8,7 +8,7 @@ public class pedidoNaoEncontradoException extends Exception {
     }
     
     public pedidoNaoEncontradoException(int pedido) {
-        mensagem = "O pedido " + pedido + " não encontrado";
+        mensagem = "O pedido " + pedido + " não foi encontrado";
     }
 
     @Override
