@@ -1,7 +1,6 @@
 //Arrays em java são sempre dinâmicos, 
 //e como tudo em java, são objetos, 
 //possuindo atributos e metodos.
-
 package arrays;
 
 public class Arrays 
@@ -125,8 +124,7 @@ public class Arrays
 //          Levando ao extremo, se o tipo bsae for a classe Object, o array
 //          poderá conter objetos de qualquer classe, já que todas as clsses são 
 //          descendentes de Object.
-        
-
-    }
     
+    }
+
 }
